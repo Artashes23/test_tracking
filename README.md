@@ -6,8 +6,11 @@ Here you will find a test task for Quality Assurance (QA) Engineers focusing on 
 
 ---
 ## Task Details
-Your initial task is to devise and implement ideas or algorithms for a  testing process to evaluate the performance of a tracking algorithm. \
-Following the implementation, we will convene for discussions either online or offline, based on your preference, to review the proposed testing methodologies and determine the subsequent steps for refining the process.
+To validate the accuracy of the tracking algorithm, the following steps are performed:
+
+For each tracked object, the average distance between the two points from left side and right side (which should follow the object) is calculated for the first 100 positions.
+This average distance is compared with the width of the detected object.
+If the absolute difference between the average distance and the width of the detected object is within a certain threshold (e.g., 20 pixels), the tracking is considered correct. This was done to make sure that any of the points(from right or the left side) will not deviate from the tracked object
 
 ---
 ## Requried Environment
@@ -35,10 +38,8 @@ cd opencv_tracking
 python3 object_tracking.py
 ```
 
-By default, the program is configured to utilize the camera for capturing the video stream. To initiate the script with this default setting, simply execute the Python script without providing any additional arguments.
 
-If you wish to process video files instead, you must explicitly specify the path to the desired video file changing video path. Replace `0` in the code below with the actual file path of your video:
-> Example video link [here](https://www.youtube.com/watch?v=WvhYuDvH17I)
+> Example video link to download [here](https://www.pexels.com/video/black-and-white-video-of-people-853889/)
 
 ```python
 # Define the video file path or 0 for webcamera input
@@ -51,8 +52,3 @@ video_path = "./your-video-name.mp4"
 video_path = "/root/Desktop/opencv_tracking/your-video-name.mp4"
 ```
 
-3. Following the initialization of the video feed, the program will prompt you to designate the object to be tracked. Use your mouse to outline a box around the desired object. Upon completion, press the spacebar to commence the tracking process.
-
-
-## Contact
->If you have any questions or need clarification regarding the task, please don't hesitate to contact us at info@inogate.com.
