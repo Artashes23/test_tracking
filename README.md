@@ -1,10 +1,7 @@
 
 # QA Test Task: OpenCV Tracking
 
-Welcome to the Inogate Company's QA Test Task repository! \
-Here you will find a test task for Quality Assurance (QA) Engineers focusing on tracking using OpenCV.
 
----
 ## Task Details
 To validate the accuracy of the tracking algorithm, the following steps are performed:
 
