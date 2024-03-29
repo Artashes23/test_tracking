@@ -8,7 +8,7 @@ hog = cv2.HOGDescriptor()
 hog.setSVMDetector(cv2.HOGDescriptor_getDefaultPeopleDetector())
 
 # Load the video
-video_path = "opencv_tracking\pexels_videos_2670 (1080p).mp4"
+video_path = "C:\\Users\\artas\\OneDrive\\Desktop\\test_task\\test_tracking\\pexels_videos_2670 (1080p).mp4"
 cap = cv2.VideoCapture(video_path)
 
 # Counter to keep track of detected positions
@@ -38,7 +38,7 @@ while positions_detected < 1:
             # Update nearest person if closer to the center
             if distance < min_distance:
                 min_distance = distance
-                nearest_person_index = i
+                nearest_person_index = i + 1
         
         # Print position and size of the nearest person
         x3, y3, w3, h3 = rects[nearest_person_index]
@@ -120,6 +120,7 @@ while positions_detected < 1:
         average_distance = sum(distances[:100]) / min(100, len(distances))
         print("Average distance for the first 100 positions:", average_distance)
         # Compare average distance for two initial bounding boxes from each other for first 100 positions to width of detected object
+        print(average_distance-w3)
         assert average_distance - w3 < 20, 'Tracking was incorrect'
         # Release resources
         cap.release()
